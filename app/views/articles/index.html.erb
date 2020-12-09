@@ -1,0 +1,17 @@
+
+<h1>Listing Articles</h1>
+<%= link_to 'New article', new_article_path, :class => 'btn btn-primary'%>
+
+<div>
+  <%# <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="9"></th>
+  </tr> %>
+ 
+  <% @articles.each do |article| %>
+   <%= render partial: 'article', locals:{article: article} %>
+  <% end %>
+
+</div>
+<%= will_paginate @articles, render: WillPaginate::ActionView::BootstrapLinkRenderer %>
